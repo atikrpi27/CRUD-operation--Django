@@ -8,9 +8,18 @@ class Musician(models.Model):
     instrument = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.first_name + " " + self.last_name
+        return self.first_name + " " + self.last_name + " , " + self.instrument
+
+    class Meta:
+        db_table = 'Musician'
 
 class Album(models.Model):
     artist = models.ForeignKey(Musician, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     release_date = models.DateField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'Album'
