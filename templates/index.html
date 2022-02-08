@@ -5,7 +5,7 @@
 <ul>
     {% if musician_list %}
     {% for musician in musician_list %}
-    <li>{{ musician.first_name }} {{ musician.last_name }} - {{ musician.instrument }}</li>
+    <li><a href="{% url 'album-list' artist_id=musician.id %}">{{ musician.first_name }} {{ musician.last_name }} </a></li>
     {% endfor %}
     {% else %}
     <h4>No Musician List.</h4>

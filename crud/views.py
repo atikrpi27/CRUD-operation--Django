@@ -19,7 +19,7 @@ def musician(request):
             forms.save(commit=True)
             return index(request)
             
-    diction = {'title' : 'Musician List', 'musician_form' : forms}
+    diction = {'title' : 'Musician Form', 'musician_form' : forms}
     return render(request,'musician.html', diction)
 
 def album(request):
@@ -31,5 +31,11 @@ def album(request):
             forms.save(commit = True)
             return index(request)
 
-    diction = {'title' : 'Album', 'album_form': forms}
+    diction = {'title' : 'Album Form', 'album_form': forms}
     return render(request,'album.html', diction)
+
+
+def album_list(request,artist_id):
+    artist_info = Musician.objects.get(pk=artist_id)
+    diction = {'title' : 'Album List: ', 'artist_info': artist_info}
+    return render(request, 'album_list.html', diction)
