@@ -5,8 +5,8 @@
 
     <b>Name: </b>{{artist_info.first_name}} {{artist_info.last_name}} <br>
     <b>Instruments: </b> {{artist_info.instrument}}<br>
-    <b>Artist Ratting: </b>{{artist_ratting.num_stars__avg}}
-
+    <b>Artist Ratting: </b>{{artist_ratting.num_stars__avg}}<br>
+    <a class="btn btn-primary btn-md mt-2" href="{% url 'edit-artist' artist_id=artist_info.id %}">Edit</a>
 
     <h5 class="mt-4">List of Albums: </h5>
     <table class="table table-bordered mt-1">

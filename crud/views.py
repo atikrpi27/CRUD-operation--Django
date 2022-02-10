@@ -43,3 +43,11 @@ def album_list(request,artist_id):
 
     diction = {'title' : 'Album List: ', 'artist_info': artist_info, 'album_list': album_list, 'artist_ratting':artist_ratting}
     return render(request, 'album_list.html', diction)
+    
+
+
+def edit_artist(request,artist_id):
+    artist_info = Musician.objects.get(pk=artist_id)
+    forms = form.MusicianForm(instance=artist_info)
+    diction = {'edit_form':forms}
+    return render(request,'edit_artist.html', diction)

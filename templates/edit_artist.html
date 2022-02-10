@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block body_block %}
+    <h4 class="mb-2">Edit Artist Info: </h4>
+<form method="post" class="mt-4">
+    {% csrf_token %}
+    {{edit_form.as_p}}
+    <input class="btn btn-success btn-sm" style="width: 75px;" type="update" name="update" value="Update">
+</form>
+
+{% endblock %}
