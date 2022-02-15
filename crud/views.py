@@ -49,5 +49,13 @@ def album_list(request,artist_id):
 def edit_artist(request,artist_id):
     artist_info = Musician.objects.get(pk=artist_id)
     forms = form.MusicianForm(instance=artist_info)
+    
+    if request.method == "POST":
+        forms = form.MusicianForm(request.POST, instance = artist_info)
+
+        if forms.is_valid():
+            forms.save(commit = True)
+            return album_list(request, artist_id)
+
     diction = {'edit_form':forms}
     return render(request,'edit_artist.html', diction)

@@ -4,7 +4,7 @@
 <form method="post" class="mt-4">
     {% csrf_token %}
     {{edit_form.as_p}}
-    <input class="btn btn-success btn-sm" style="width: 75px;" type="update" name="update" value="Update">
+    <input class="btn btn-success btn-sm" style="width: 75px;" type="submit" name="update" value="Update">
 </form>
 
 {% endblock %}
