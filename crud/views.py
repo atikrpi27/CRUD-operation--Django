@@ -1,4 +1,5 @@
 from re import A
+from urllib import request
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Musician, Album
@@ -57,5 +58,24 @@ def edit_artist(request,artist_id):
             forms.save(commit = True)
             return album_list(request, artist_id)
 
-    diction = {'edit_form':forms}
+    diction = {'edit_artist':forms}
     return render(request,'edit_artist.html', diction)
+
+
+def album_lists(request):
+    return render(request,'album_list.html')
+
+def edit_album(request,album_id):
+    album_info = Album.objects.get(pk=album_id)
+    forms = form.AlbumForm(instance = album_info)
+    diction = {}
+
+    if request.method == "POST":
+        forms = form.AlbumForm(request.POST, instance = album_info)
+
+        if forms.is_valid():
+            forms.save(commit = True)
+            diction.update({'success_text':'Succesfully Updated!'})
+
+    diction.update({'edit_album':forms})
+    return render(request,'edit_album.html', diction)

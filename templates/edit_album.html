@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block body_block %}
-    <h4 class="mb-2">Edit Artist Info: </h4>
+<h4 class="mb-2">Edit Album: </h4>
+{% if success_text %}
+    <div class="alert alert-success">{{ success_text }}</div>
+{% endif %}
 <form method="post" class="mt-4">
     {% csrf_token %}
-    {{edit_artist.as_p}}
+    {{edit_album.as_p}}
     <input class="btn btn-success btn-sm" style="width: 75px;" type="submit" name="update" value="Update">
 </form>
-
 {% endblock %}
