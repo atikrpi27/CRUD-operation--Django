@@ -78,4 +78,9 @@ def edit_album(request,album_id):
             diction.update({'success_text':'Succesfully Updated!'})
 
     diction.update({'edit_album':forms})
+    diction.update({'album_id':album_id})
     return render(request,'edit_album.html', diction)
+
+def delete_album(request,album_id):
+    diction = {}
+    return render(request, 'delete.html', diction)

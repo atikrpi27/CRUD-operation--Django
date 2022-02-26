@@ -22,7 +22,7 @@
             <td>{{ album.release_date|date:"M d, Y" }}</td>
             <td>{{ album.num_stars }}</td>
             <td><a href="{% url 'edit-album' album_id=album.id %}" class="btn btn-success">Edit</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                <a href="{% url 'delete_album' album_id=album.id %}" class="btn btn-danger" onclick="return confirm('Delete this album?')">Delete</a>
             </td>
         </tr>
         {% endfor %}

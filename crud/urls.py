@@ -14,4 +14,5 @@ urlpatterns = [
     path('edit-artist/<int:artist_id>/', views.edit_artist, name='edit-artist'),
     path('album-lists>/', views.album_lists, name='album-lists'),
     path('edit-album/<int:album_id>/', views.edit_album, name='edit-album'),
+    path('delete_album/<int:album_id>/', views.delete_album, name='delete_album'),
 ]
