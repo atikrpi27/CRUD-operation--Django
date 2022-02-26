@@ -82,5 +82,6 @@ def edit_album(request,album_id):
     return render(request,'edit_album.html', diction)
 
 def delete_album(request,album_id):
-    diction = {}
+    album = Album.objects.get(pk=album_id).delete()
+    diction = {'delete_message':"Album Deleted Successfully!"}
     return render(request, 'delete.html', diction)
